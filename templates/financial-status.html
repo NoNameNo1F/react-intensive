@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Status</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1e3a8a;
+      --secondary-color: #3b82f6;
+      --background-color: #f1f5f9;
+      --border-color: #e5e7eb;
+      --text-color: #111827;
+    }
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: var(--secondary-color);
+    }
+    .panel {
+      border: 1px solid var(--border-color);
+      background-color: #ffffff;
+      padding: 1rem;
+      border-radius: 0.375rem;
+    }
+  </style>
+</head>
+<body class="py-10">
+  <div class="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-center" style="color: var(--primary-color)">Financial Status</h2>
+    <form class="mt-6 space-y-6">
+
+      <!-- Incomes Section -->
+      <div class="panel">
+        <h3 class="text-lg font-medium mb-4" style="color: var(--primary-color)">Incomes (A)</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="income-type" class="block text-sm font-medium">Type</label>
+            <select
+              id="income-type"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color">
+              <option value="salary">Salary</option>
+              <option value="investment">Investment</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+          <div>
+            <label for="income-amount" class="block text-sm font-medium">Amount (Currency)</label>
+            <input
+              type="number"
+              id="income-amount"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color"
+              placeholder="Enter amount"
+              required
+            />
+          </div>
+        </div>
+        <button type="button" class="btn-primary px-4 py-2 mt-4 rounded-md">Add Income</button>
+      </div>
+
+      <!-- Assets Section -->
+      <div class="panel">
+        <h3 class="text-lg font-medium mb-4" style="color: var(--primary-color)">Assets (B)</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="asset-type" class="block text-sm font-medium">Type</label>
+            <select
+              id="asset-type"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color">
+              <option value="bond">Bond</option>
+              <option value="liquidity">Liquidity</option>
+              <option value="real-estate">Real Estate</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+          <div>
+            <label for="asset-amount" class="block text-sm font-medium">Amount (Currency)</label>
+            <input
+              type="number"
+              id="asset-amount"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color"
+              placeholder="Enter amount"
+              required
+            />
+          </div>
+        </div>
+        <button type="button" class="btn-primary px-4 py-2 mt-4 rounded-md">Add Asset</button>
+      </div>
+
+      <!-- Liabilities Section -->
+      <div class="panel">
+        <h3 class="text-lg font-medium mb-4" style="color: var(--primary-color)">Liabilities (C)</h3>
+        <p class="text-sm mb-4 text-gray-600">
+          Liabilities are any outstanding debts or obligations you may have. These can include loans such as personal loans, mortgages, or other forms of debt.
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="liability-type" class="block text-sm font-medium">Type</label>
+            <select
+              id="liability-type"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color">
+              <option value="personal-loan">Personal Loan</option>
+              <option value="real-estate-loan">Real Estate Loan</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+          <div>
+            <label for="liability-amount" class="block text-sm font-medium">Amount (Currency)</label>
+            <input
+              type="number"
+              id="liability-amount"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color"
+              placeholder="Enter amount"
+              required
+            />
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="liabilities-total" class="block text-sm font-medium">Total Liabilities</label>
+          <input
+            type="number"
+            id="liabilities-total"
+            class="w-full px-4 py-2 mt-2 border rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-secondary-color"
+            placeholder="Calculated Total"
+            readonly
+          />
+        </div>
+        <button type="button" class="btn-primary px-4 py-2 mt-4 rounded-md">Add Liability</button>
+      </div>
+
+      <!-- Source of Wealth Section -->
+      <div class="panel">
+        <h3 class="text-lg font-medium mb-4" style="color: var(--primary-color)">Source of Wealth (D)</h3>
+        <p class="text-sm mb-4 text-gray-600">
+          This section identifies the origin of your wealth, such as any inheritance or donations you may have received. It's important for financial transparency.
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="wealth-type" class="block text-sm font-medium">Type</label>
+            <select
+              id="wealth-type"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color">
+              <option value="inheritance">Inheritance</option>
+              <option value="donation">Donation</option>
+            </select>
+          </div>
+          <div>
+            <label for="wealth-amount" class="block text-sm font-medium">Amount (Currency)</label>
+            <input
+              type="number"
+              id="wealth-amount"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color"
+              placeholder="Enter amount"
+              required
+            />
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="wealth-total" class="block text-sm font-medium">Total Source of Wealth</label>
+          <input
+            type="number"
+            id="wealth-total"
+            class="w-full px-4 py-2 mt-2 border rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-secondary-color"
+            placeholder="Calculated Total"
+            readonly
+          />
+        </div>
+        <button type="button" class="btn-primary px-4 py-2 mt-4 rounded-md">Add Source of Wealth</button>
+      </div>
+
+      <!-- Net Worth Section -->
+      <div class="panel">
+        <h3 class="text-lg font-medium mb-4" style="color: var(--primary-color)">Net Worth</h3>
+        <div>
+          <label for="net-worth-total" class="block text-sm font-medium">Total</label>
+          <input
+            type="number"
+            id="net-worth-total"
+            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color"
+            placeholder="Automatically calculated"
+            disabled
+          />
+        </div>
+      </div>
+
+      <!-- Investment Experience and Objectives Section -->
+      <div class="panel">
+        <h3 class="text-lg font-medium mb-4" style="color: var(--primary-color)">Investment Experience and Objectives</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="investment-experience" class="block text-sm font-medium">Experience in Financial Markets</label>
+            <select
+              id="investment-experience"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color">
+              <option value="<5-years">< 5 years</option>
+              <option value="5-10-years">> 5 and < 10 years</option>
+              <option value=">10-years">> 10 years</option>
+            </select>
+          </div>
+          <div>
+            <label for="risk-tolerance" class="block text-sm font-medium">Risk Tolerance</label>
+            <select
+              id="risk-tolerance"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color">
+              <option value="10%">10%</option>
+              <option value="30%">30%</option>
+              <option value="all-in">All-in</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>
