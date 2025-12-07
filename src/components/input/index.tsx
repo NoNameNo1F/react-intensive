@@ -14,27 +14,21 @@ export type InputType = Exclude<
 
 type Props = {
   label?: string;
-  placeholder?: string;
   type?: string;
+  disabled?: boolean;
   error?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { label, placeholder, type = "text", error, ...rest } = props;
+  const { label, disabled = false, error, ...rest } = props;
 
   return (
     <>
-      {label && (
-        <label className="block text-sm font-medium text-gray-600">
-          {label}
-        </label>
-      )}
+      {label && <label className="block text-md font-semibold">{label}</label>}
       <input
-        type={type}
         ref={ref}
-        id="email"
-        className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        placeholder={placeholder}
+        className="w-full border rounded-lg border-gray-600 bg-gray-200 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 px-4 py-2 mt-2"
+        disabled={disabled}
         {...rest}
       />
       {error && <small className="text-red-600 my-2">{error}</small>}

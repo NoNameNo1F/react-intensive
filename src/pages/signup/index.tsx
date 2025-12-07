@@ -5,7 +5,7 @@ import Button from "../../components/button";
 import Input from "../../components/input";
 
 import { AUTH_URL } from "../../constant/url";
-import { useSignupMutation } from "../../hooks/use-signup-mutation";
+import { useSignupMutation } from "../../hooks/use-auth-mutation";
 
 type SignupForm = {
   username: string;
@@ -54,7 +54,7 @@ const Signup = () => {
           <Input
             label="User name"
             required
-            placeholder="Enter your username"
+            placeholder="name@company.com"
             error={errors.username?.message}
             {...register("username", {
               required: "Username is required",
@@ -70,7 +70,7 @@ const Signup = () => {
           <Input
             label="Password"
             type="password"
-            placeholder="Enter your password"
+            placeholder="************"
             error={errors.password?.message}
             {...register("password", {
               required: "Password is required",
@@ -85,7 +85,7 @@ const Signup = () => {
           <Input
             label="Re-enter Password"
             type="password"
-            placeholder="Re-enter your password"
+            placeholder="************"
             error={errors.rePassword?.message}
             {...register("rePassword", {
               required: "Passwords do not match",
@@ -101,9 +101,9 @@ const Signup = () => {
           Sign Up
         </Button>
       </form>
-      <p className="mt-4 text-sm text-center text-gray-600">
+      <p className="mt-4 text-sm text-center font-semibold text-gray-600">
         Already have an account?
-        <a href="/auth/login" className="ml-2 text-blue-600 hover:underline">
+        <a href="/auth/login" className="ml-2 text-blue-700 hover:underline">
           Login here
         </a>
       </p>

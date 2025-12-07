@@ -7,8 +7,7 @@ function HeaderLayout() {
   return (
     <nav
       className="
-        sticky top-0 z-[99999] 
-        w-full h-16
+        sticky top-0 z-[99999] h-16
         flex items-center
         bg-white dark:bg-gray-800 shadow-sm
         border-b border-gray-400 dark:border-gray-700 

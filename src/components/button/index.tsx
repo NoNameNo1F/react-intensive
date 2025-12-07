@@ -11,7 +11,11 @@ const Button = (props: Props) => {
   return (
     <button
       type="submit"
-      className="w-full flex items-center  justify-center px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      //   className="w-full flex items-center  justify-center px-4 py-2
+      //   text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:outline-none
+      //   focus:ring-2 focus:ring-blue-400 duration-300 ease-in-out"
+      className="inline-flex bg-blue-800 text-white dark:bg-blue-400 dark:text-gray-950 hover:bg-blue-900 dark:hover:bg-blue-500 rounded-lg py-2 px-4 font-semibold cursor-pointer
+        ease-in-out duration-300"
       {...rest}
     >
       {isLoading && (

@@ -1,90 +1,28 @@
+import Breadcrumb from "../../components/breadcrumb";
+import UserCard from "../../features/user-profile/components/user-card";
+import { getUserSessionFromToken } from "../../utils/token-utils";
+
 const DashboardPage = () => {
+  const user = getUserSessionFromToken();
   return (
     <div
       className="
-        flex
-        border border-gray-400 dark:border-gray-700 rounded-lg shadow-md 
-        bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-gray-200
-      mr-4"
+        flex flex-col justify-start gap-4
+        text-gray-950 dark:text-gray-200"
     >
-      <ol className="flex space-x-1 md:space-x-2 rtl:space-x-reverse">
-        <li className="inline-flex items-center">
-          <a
-            href="#"
-            className="flex items-center text-sm font-medium text-body hover:text-fg-brand"
-          >
-            <svg
-              className="w-4 h-4 me-1.5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"
-              />
-            </svg>
-            Home
-          </a>
-        </li>
-        <li>
-          <div className="flex items-center space-x-1.5">
-            <svg
-              className="w-3.5 h-3.5 rtl:rotate-180 text-body"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m9 5 7 7-7 7"
-              />
-            </svg>
-            <a
-              href="#"
-              className="flex items-center text-sm font-medium text-body hover:text-fg-brand"
-            >
-              Projects
-            </a>
-          </div>
-        </li>
-        <li aria-current="page">
-          <div className="flex items-center space-x-1.5">
-            <svg
-              className="w-3.5 h-3.5 rtl:rotate-180 text-body"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m9 5 7 7-7 7"
-              />
-            </svg>
-            <span className="inline-flex items-center text-sm font-medium text-body-subtle">
-              Flowbite
-            </span>
-          </div>
-        </li>
-      </ol>
+      <Breadcrumb page="Dashboard" />
+      <h1 className="font-bold text-2xl">
+        Dashboard, Welcome {user?.firstName}
+      </h1>
+
+      <div
+        className="
+        max-w-full border border-gray-400 dark:border-gray-700 rounded-lg shadow-md 
+        bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-gray-200
+        mr-4 p-4"
+      >
+        <UserCard url={"https://i.pravatar.cc"} />
+      </div>
     </div>
   );
 };

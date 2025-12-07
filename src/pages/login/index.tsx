@@ -5,7 +5,7 @@ import Button from "../../components/button";
 import CheckBox from "../../components/check-box";
 import Input from "../../components/input";
 
-import { useLoginMutation } from "../../hooks/use-login-mutation";
+import { useLoginMutation } from "../../hooks/use-auth-mutation";
 
 import { TOKEN } from "../../constant/auth";
 import { DASHBOARD_URL } from "../../constant/url";
@@ -94,7 +94,7 @@ const Login = () => {
           Login
         </Button>
       </form>
-      <p className="mt-4 text-sm text-center text-gray-600">
+      <p className="mt-4 text-sm text-center font-semibold text-gray-600">
         Don't have an account?
         <a href="sign-up" className="ml-2 text-blue-600 hover:underline">
           Sign up

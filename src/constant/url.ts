@@ -10,15 +10,11 @@ const DASHBOARD_BASE = "/dashboard";
 export const DASHBOARD_URL = {
   BASE: DASHBOARD_BASE,
   SUBMISSION: `${DASHBOARD_BASE}/submissions`,
-};
-
-const SUBMISSION_BASE = "/submissions";
-export const SUBMISSION_URL = {
-  BASE: SUBMISSION_BASE,
+  MY_SUBMISSION: `${DASHBOARD_BASE}/my-submissions`,
 };
 
 const PROFILE_BASE = "/profile";
 export const PROFILE_URL = {
   BASE: PROFILE_BASE,
-  EDIT: `${PROFILE_BASE}/edit`,
+  KYC: `${PROFILE_BASE}/kyc`,
 };

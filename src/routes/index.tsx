@@ -6,17 +6,12 @@ import Login from "../pages/login";
 import AuthLayout from "../layouts/auth";
 import SharedLayout from "../layouts/shared-layout";
 
-import {
-  AUTH_URL,
-  DASHBOARD_URL,
-  PROFILE_URL,
-  SUBMISSION_URL,
-} from "../constant/url";
+import { AUTH_URL, DASHBOARD_URL, PROFILE_URL } from "../constant/url";
 
 import { TOKEN } from "../constant/auth";
-import SubmissionsPage from "../pages/dashboard/submissions";
+import ReviewSubmissionsPage from "../pages/dashboard/submit-review";
 import ProfilePage from "../pages/profile";
-import EditProfilePage from "../pages/profile/edit";
+import EditProfilePage from "../pages/profile/kyc";
 import Signup from "../pages/signup";
 import MySubmissionsPage from "../pages/submissions";
 import AuthRedirect from "./auth-redirect";
@@ -53,7 +48,11 @@ const Router = createBrowserRouter([
       { index: true, Component: DashboardPage },
       {
         path: DASHBOARD_URL.SUBMISSION,
-        Component: SubmissionsPage,
+        Component: ReviewSubmissionsPage,
+      },
+      {
+        path: DASHBOARD_URL.MY_SUBMISSION,
+        Component: MySubmissionsPage,
       },
     ],
   },
@@ -64,16 +63,10 @@ const Router = createBrowserRouter([
     children: [
       { index: true, Component: ProfilePage },
       {
-        path: PROFILE_URL.EDIT,
+        path: PROFILE_URL.KYC,
         Component: EditProfilePage,
       },
     ],
-  },
-  {
-    path: SUBMISSION_URL.BASE,
-    Component: SharedLayout,
-    middleware: [requireAuth],
-    children: [{ index: true, Component: MySubmissionsPage }],
   },
 ]);
 
